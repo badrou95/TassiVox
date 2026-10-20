@@ -1,0 +1,22 @@
+TASSIVOX — INSTALLATION SANS SUPABASE
+
+Cette version n'utilise plus Supabase. Les articles sont stockés dans le dépôt GitHub et le site est hébergé sur Vercel.
+
+1) Importez les fichiers du ZIP dans votre dépôt GitHub TassiVox.
+2) Dans GitHub, créez un Personal Access Token limité au dépôt TassiVox avec Contents: Read and write.
+3) Dans Vercel > projet > Settings > Environment Variables, ajoutez:
+   GITHUB_TOKEN = votre token (secret)
+   GITHUB_OWNER = badrou95
+   GITHUB_REPO = TassiVox
+   TASSIVOX_ADMIN_PASSWORD = un mot de passe administrateur long
+   TASSIVOX_SESSION_SECRET = un secret aléatoire d'au moins 32 caractères
+4) Redéployez sur Vercel.
+5) Ouvrez /admin/login pour vous connecter.
+
+Lorsqu'un article ou un réglage est enregistré, le système met à jour content/tassivox.json dans GitHub. Le commit GitHub déclenche ensuite un nouveau déploiement Vercel.
+
+IMPORTANT:
+- Ne mettez jamais le token GitHub dans un fichier public ou dans un message.
+- Gardez le token limité au dépôt TassiVox.
+- Cette version utilise un mot de passe admin commun; les comptes individuels et rôles séparés ne sont pas encore disponibles.
+- L'affichage public est actualisé après le redéploiement, pas nécessairement immédiatement.
